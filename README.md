@@ -55,7 +55,7 @@ Make _jax-rs_ decoupled from from Spring. This includes persistence, security, v
   }
   ```
   
- - AOP: Looks like `InterceptionService` implementations are not working on `@Named` components (still need to investigate)? So here is a rough idea on how to implement proxies    with JDK dynamic proxy. https://gist.github.com/criske/cb4f1ef21b2e9d376916d38c98dc8700 . It only works with field injection though:
+ - AOP: Looks like `InterceptionService` implementations are not working on `@Named` components (still need to investigate)? So here is a rough idea on how to intercept @Named     components with JDK dynamic proxy and `AbstractBinder`. https://gist.github.com/criske/cb4f1ef21b2e9d376916d38c98dc8700 . It only works with field injection though:
    ```java
    interface PrinterService{
     String print(String text);
