@@ -21,7 +21,7 @@ needed by common module:
 
 
 #### TODO:
-Make _jax-rs_ decoupled from from String. This includes persistence, security, validation and dependency injection.
+Make _jax-rs_ decoupled from from Spring. This includes persistence, security, validation and dependency injection.
 
 - DI (jsr-330 and jersey 2):
   Started working on a custom binder that auto-scan for components annotated with `@Named`. https://gist.github.com/criske/d2d2bf7f6d7d41898ef2880de4d6a229
@@ -41,9 +41,9 @@ Make _jax-rs_ decoupled from from String. This includes persistence, security, v
   ```java
   Resource config = new ResourceConfig();
   config.register(MyResource.class);
-  NamedComponentsBinder.selfRegister(config, "myPack");
+  NamedComponentsBinder.selfRegister(config, "mypack");
   ```
-  Now MyService will injected into `MyResource`
+  Now `MyService` will be injected into `MyResource`
   ```java
   @Path("/hello")
   class MyResource {
