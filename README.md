@@ -24,7 +24,8 @@ needed by common module:
 Make _jax-rs_ decoupled from from String. This includes persistence, security, validation and dependency injection.
 
 - DI (jsr-330 and jersey 2):
-  Started working on a custom binder that auto-scann for components annotated with `@Named`. https://gist.github.com/criske/d97775733a84b9f6625efe55da1523af
+  Started working on a custom binder that auto-scan for components annotated with `@Named`. https://gist.github.com/criske/d2d2bf7f6d7d41898ef2880de4d6a229
+  For now all components are @Singleton scoped.
   Usage:
   ```java
   package mypack;
