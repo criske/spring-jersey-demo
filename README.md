@@ -55,33 +55,6 @@ Make _jax-rs_ decoupled from from Spring. This includes persistence, security, v
   }
   ```
   
- - AOP: Looks like `InterceptionService` implementations are not working on `@Named` components (still need to investigate)? So here is a rough idea on how to intercept @Named     components with JDK dynamic proxy and `AbstractBinder`. https://gist.github.com/criske/cb4f1ef21b2e9d376916d38c98dc8700 . It only works with field injection though:
-   ```java
-   interface PrinterService{
-    String print(String text);
-   }
-    
-   @Named
-   class PrinterServiceImpl implements PrinterService {
-     
-     public String print(String text){
-      return text;
-     }
-   }
-   
-   @Named
-   class MyServiceImpl implements MyService{
-     @Inject
-     private PrinterService printer;
-     
-     public String sayHello(){
-       return printer.print("Say Hello');
-     }
-   }
-   ```
-   
-   ```java
-   config.register(PrinterServiceInterceptor.class);
-   ```
+ - AOP: started working on a POF: https://github.com/criske/jersey-hk2-aop
     
 
